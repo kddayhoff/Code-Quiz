@@ -21,12 +21,59 @@
     <button id="start-quiz">Start Quiz</button>
    </div>
 <!--This section is the first page of the quiz-->
-<h2 class="h2">Question 1:</h2>
-<p class="question">What does 'CSS' stand for?</p>
-<button class="answer-button">Cascading Style Sheet</button>
-<button class="answer-button">Controlled Style Sections</button>
-<button class="answer-button">Cascading Style Sections</button>
-<button class="answer-button">Cats Saunter Slowly</button>
+  <div>
+   <h2 class="h2">Question 1:</h2>
+     <p class="question">What does 'CSS' stand for?</p>
+      <div class="row">
+        <div class="col-md-2">
+          <button type="button" class="btn btn-outline-info">Cascading Style Sheet</button>
+          <div class="col-md-2">
+          <button type="button" class="btn btn-info">Controlled Style Sections</button>
+        </div>
+        </div>
+      </div>
+        <div class="row">
+        <div class="col-md-2">
+          <button type="button" class="btn btn-outline-info">Cascading Style Sections</button>
+          <button type="button" class="btn btn-info">Cats Saunter Slowly</button>
+        </div>
+     </div>
+  </div>
+<!--This section is the second page of the quiz-->  
+  <div>
+   <h2 class="h2">Question 2:</h2>
+     <p class="question">What makes up the 'Box Model' in CSS?</p>
+      <button class="answer-button">Tag, Padding, Margin, Content</button>
+      <button class="answer-button">Content, Padding, Border, Margin</button>
+      <button class="answer-button">Attributes, Content, Class, Border</button>
+      <button class="answer-button">Sex, Drugs, Rock n' Roll</button>
+  </div>
+<!--This section is the third page of the quiz-->
+  <div>
+    <h2 class="h2">Question 3:</h2>
+      <p class="question">Which one of these are NOT a type of loop?</p>
+       <button class="answer-button">For</button>
+       <button class="answer-button">For/In</button>
+       <button class="answer-button">Coulda/Woulda/Shoulda</button>
+       <button class="answer-button">While</button>
+  </div>
+  <!--This section is the fourth page of the quiz-->
+   <div>
+    <h2 class="h2">Question 4:</h2>
+      <p class="question">What languages does a 'MERN' developer use?</p>
+       <button class="answer-button">Mango, Explorer, Ruby, Node.js</button>
+       <button class="answer-button">Mode, Express, React, Node.js</button>
+       <button class="answer-button">Momma, Eats, Rat, Nuggets</button>
+       <button class="answer-button">MongoDB, Express, React, Node.js</button>
+   </div>
+   <!--This section is the end of game page where a user can enter in their initials for the high scores-->
+   <div>
+     <h2 class="h2">End of Game: You survived!</h2>
+       <input type="text" placeholder="Your Initials Here" name="user-initials" id="user-initials"/>
+       <button id="submit-initials">Click to enter the Code Quiz hall of fame</button>
+       <!--do I need a data-index here? https://www.w3schools.com/tags/att_global_data.asp-->
+   </div>
+
 </main>
 <footer>
 </footer>
