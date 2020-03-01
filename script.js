@@ -8,6 +8,7 @@ startBtn.innerHTML = "Start Quiz!";
 
 startBtn.addEventListener("click", function() {
  //change value below to 60 seconds to start countdown at 60  
+ event.preventDefault();
    var quizTimer = 5;
    var startBtn = setInterval(function() {
       quizTimer --;
@@ -23,10 +24,15 @@ startBtn.addEventListener("click", function() {
       }
      });
   document.body.appendChild(startBtn);
+  
+     //brings up first question of quiz simultaneously as the timer starts
+  startBtn.addEventListener("click", function() { 
+     var question1 = document.createElement("p");      question1.innerHTML = "What year did Marty McFly go back in time to, in the movie <i>Back to the Future</i>?";                
+      document.getElementById("question1").appendChild(question1);
 
-  startBtn.addEventListener("click", function() {
-   
   });
+
+
 
 
 /*document.getElementById("quiz");

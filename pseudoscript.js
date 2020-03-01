@@ -1,4 +1,4 @@
-//Create 'function (rightAnswer)' [do I need to have a different named function for every question? Maybe not by using THIS] if else statements for answers to the questions (if button is clicked onClick() event), function validate() {
+//Create 'function (rightAnswer)' if else statements for answers to the questions (if button is clicked onClick() event), function validate() {
   //variables for questions should be ARRAYS
  /*var answer1 = document.getElementsByClassName("answer-button1");
  for (var i = 0, i < answer1.length; i++) {
@@ -24,5 +24,5 @@
 //question 3: Which one of these movies is based on an SNL skit? a) Anchorman b) Blues Brothers c) Austin Powers  d) Tommy Boy
 //question 4: Which one of these James Bond films did Sean Connery NOT star in? a) Goldfinger b) Live and Let Die c) From Russia with Love d) Diamonds Are Forever
 //add push array to count how many right answers there (if true push to new arraw which will output on to page
-//will need to use local storage to save initials to page, jSon.pars will help avoid listing out each letter when putting on page, need to take list, it's an array (obj w/ scores) that are strings, getItemfrom local storage -- need to use for loop to turn it back into an array
+//will need to use local storage to save initials to page, jSon.parse will help avoid listing out each letter when putting on page, need to take list, it's an array (obj w/ scores) that are strings, getItemfrom local storage -- need to use for loop to turn it back into an array
 //'return' ex return a + b to show answer (return wrong/right). 
