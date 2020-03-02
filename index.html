@@ -4,135 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href=style.css>
-    <link rel="script" href="4script.js">
+    <link rel="stylesheet" href="style.css">
+    <link rel="script" href="script.js">
     <title>Code Quiz</title>
 </head>
 <header>
-<h1 class="title">Code Quiz Bonanza!</h1>
+<h1 class="title">MOVIE QUIZ BONANZA!!!</h1>
+
+<p>You have 60 seconds to complete the quiz. For every right answer, 10 seconds will be added to your time! But beware, for every WRONG answer, <b>15 seconds</b> will be subtracted from your time! Play at your own risk...</p>
+<br>
+<div class="timer">
+    <span id="seconds">60</span>
+</div>
+<br>
 </header>
 <body>
-  <div class="container">
+    
+<div id="quiz"></div>
+<div id="score"></div>
+<input id="initials" placeholder="Your Initials Here">
   <main>
-  <!--This is the first page the user sees where they can read the rules and begin the game-->    
-  <div id="start-game">
-    <h2 class="h2">Instructions:</h2>
-    <p>You have 60 seconds to complete the quiz. For every right answer, 10 seconds will be added to your time! But beware, for every WRONG answer, <b>15 seconds</b> will be subtracted from your time! Play at your own risk...</p>
-    <button type="button" class="btn btn-outline-primary" id="start-quiz">Start Quiz</button>
-   </div>
-   <br>
-<!--This section is the first page of the quiz-->
-  <div id="question1">
-   <h2 class="h2">Question 1:</h2>
-     <p class="question">What does 'CSS' stand for?</p>
-      <div class="row">
-        <div class="col-md-6">
-          <button type="button" class="btn btn-outline-info" class="answer-button1" id="answer1a">Cascading Style Sheet</button>
-        </div>
-        <div class="col-md-6">
-          <button type="button" class="btn btn-info" class="answer-button1" id="answer1b">Controlled Style Sections</button>  
-        </div>
-        </div>
-      </div>
-        <div class="row">
-        <div class="col-md-6">
-          <button type="button" class="btn btn-info" class="answer-button1" id="answer1c">Cascading Style Sections</button>
-        </div>
-         <div class="col-md-6">
-          <button type="button" class="btn btn-outline-info" class="answer-button1" id="answer1d">Cats Saunter Slowly</button>
-         </div>
-        </div> 
-     <br>
-<!--This section is the second page of the quiz-->  
-  <div id="question2">
-   <h2 class="h2">Question 2:</h2>
-     <p class="question">What makes up the 'Box Model' in CSS?</p>
-      <div class="row">
-       <div class="col-md-6">
-        <button type="button" class="btn btn-success" class="answer-button">Tag, Padding, Margin, Content</button>
-        </div>
-        <div class="col-md-6"> 
-        <button type="button" class="btn btn-outline-success" class="answer-button">Content, Padding, Border, Margin</button>
-        </div>
-      </div>
-      </div>
-      <div class="row">
-        <div class="col-md-6">
-        <button type="button" class="btn btn-outline-success"class="answer-button">Attributes, Content, Class, Border</button>
-        </div>
-        <div class="col-md-6">
-        <button type="button" class="btn btn-success" class="answer-button">Sex, Drugs, Rock n' Roll</button>
-      </div>  
-    </div>
-  </div>
-      <br>
-<!--This section is the third page of the quiz-->
-  <div id="question3">
-    <h2 class="h2">Question 3:</h2>
-      <p class="question">Which one of these are NOT a type of loop?</p>
-       <div class="row">
-        <div class="col-md-6">
-         <button type="button" class="btn btn-outline-secondary" class="answer-button">For</button>
-        </div>
-        <div class="col-md-6">
-         <button type="button" class="btn btn-secondary" class="answer-button">For/In</button>
-        </div>
-       </div>
-      <div class="row">
-       <div class="col-md-6">
-         <button type="button" class="btn btn-secondary" class="answer-button">Coulda/Woulda/Shoulda</button>
-       </div>
-       <div class="col-md-6">
-         <button type="button" class="btn btn-outline-secondary" class="answer-button">While</button>
-       </div>
-     </div>
-    </div>
-  <br>
-  <!--This section is the fourth page of the quiz-->
-   <div id="question3">
-    <h2 class="h2">Question 4:</h2>
-      <p class="question">What languages does a 'MERN' developer use?</p>
-       <div class="row">
-        <div class="col-md-6">
-         <button type="button" class="btn btn-outline-danger" class="answer-button">Mango, Explorer, Ruby, Node.js</button>
-        </div> 
-        <div class="col-md-6">
-         <button type="button" class="btn btn-danger" class="answer-button">Mode, Express, React, Node.js</button>
-        </div> 
-       </div>  
-        <div class="row">
-         <div class="col-md-6">
-         <button type="button" class="btn btn-danger" class="answer-button">Momma, Eats, Rat, Nuggets</button>
-        </div> 
-        <div class="col-md-6">
-         <button type="button" class="btn btn-outline-danger" class="answer-button">MongoDB, Express, React, Node.js</button>
-        </div>
-       </div>
-     </div> 
-    <br>
-   <!--This section is the end of game page where a user can enter in their initials for the high scores-->
-   <div id="end-game">
-     <h2 class="h2">End of Game: You survived!</h2>
-      <div class="row">
-        <div class="col-md-6">
-         <h3 id="total-score">Total Score:<span id="score"></span></h3>
-        </div>
-        <div class="col-md-6">
-         <input type="text" placeholder="Your Initials Here" name="user-initials" id="user-initials"/>
-        </div>
-      </div>
-       <button type="button" class="btn btn-outline-primary" id="submit-initials">Click to enter the Code Quiz hall of fame</button>
-       <!--do I need a data-index here? https://www.w3schools.com/tags/att_global_data.asp-->
-   </div>
-   <!--page with the high scores listed out here, names with scores-- store to a string and write to page? make it so they don't disappear-->
-
+ 
 </main>
 <footer>
 </footer>
 </div>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="./script.js"></script>
 </body>
-
 </html>
