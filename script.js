@@ -55,31 +55,36 @@ function showQuestions () {
   quizQuestions.innerHTML = questions[questionNumber].ask;  
   for (var i = 0; i < questions[questionNumber].choices.length; i++) {
         console.log(questions[questionNumber]);
-       // document.write(questions[i].text);
+    
        var btn = document.createElement("button");
        btn.innerText = questions[questionNumber].choices[i];
        quizQuestions.appendChild(btn);
-       btn.addEventListener("click", quizQuestions);
+       btn.addEventListener("click", checkAnswers);
+       //var userChoice = event.target.textContent;
        //toggle display none
        //call the checkAnwers within the main function
        //
    }
 }
-showQuestions();
+showQuestions()
+function checkAnswers() {
+
+  if ( questions.choices == questions.correctAnswer) {
+   questionNumber ++;
+   finalScore ++;
+   //return "Right-o-rini!";
+  }
+   else { (choices != correctAnswer); 
+   questionNumber ++; 
+   //return "Wrong-O!" 
+   }
+} 
+checkAnswers();
 
 
 
-
-/*function checkAnswers();
-
-for (var i = 0; questions.choices.length; i++) {
-  if (choices === correctAnswer) {
-   questionNumber ++
-   final score ++
-   else (choices !== correctAnswer) 
-   questionNumber ++   
-  } */
-  //
+  
+  
 
 //}
   //  if ("" === true)
