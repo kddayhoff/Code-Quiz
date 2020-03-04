@@ -60,13 +60,9 @@ function showQuestions () {
        btn.innerText = questions[questionNumber].choices[i];
        quizQuestions.appendChild(btn);
        btn.addEventListener("click", quizQuestions);
-       //toggle display none
-       //call the checkAnwers within the main function
-       //
    }
 }
 showQuestions();
-
 
 
 
