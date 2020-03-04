@@ -67,8 +67,8 @@ function showQuestions () {
    }
 }
 showQuestions()
-function checkAnswers() {
-
+function checkAnswers(event) {
+var userChoice = event.target.textContent;
   if ( questions.choices == questions.correctAnswer) {
    questionNumber ++;
    finalScore ++;
