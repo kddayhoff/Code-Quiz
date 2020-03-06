@@ -1,7 +1,7 @@
 var quizQuestions = document.getElementById("quizQuestions");
 var score = document.getElementById("score");
-var seconds = document.getElementById("seconds");
-var startBtn = document.createElement("button");
+var startBtn = document.createElement("button");var seconds = document.getElementById("seconds");
+
 var questionNumber = 0;
 var finalScore = 0;
 var questions = [
@@ -27,13 +27,12 @@ var questions = [
    }
 ];
 
+//Start Quiz timer
 startBtn.innerHTML = "Start Quiz!";
-
 
 startBtn.addEventListener("click", function() {
  event.preventDefault();
- //change value below to 60 seconds to start countdown at 60  
-   var quizTimer = 5;
+   var quizTimer = 60;
    var startBtn = setInterval(function() {
       quizTimer --;
       seconds.textContent = quizTimer;
@@ -43,21 +42,19 @@ startBtn.addEventListener("click", function() {
       }
    }, 1000);
    console.log(quizTimer);
-   //put end of game function here (where Tim called the hide styles) - to go to final page if time runs out
 
    function startBtn() {
-       document.createElement("h3") = --quizTimer;
+       document.getElementById("button") = --quizTimer;
       }
      });
   document.body.appendChild(startBtn);
 
-
+//Make questions appear on page and loop them until the user has gone through all choices
 function showQuestions () {
-   if (questionNumber < 4)  {
+   if (questionNumber < questions.length)  {
          quizQuestions.innerHTML = questions[questionNumber].ask;  
-         };
+      };
   
-
   for (var i = 0; i < questions[questionNumber].choices.length; i++) {
         console.log(questions[questionNumber]);
        
@@ -68,26 +65,20 @@ function showQuestions () {
           checkAnswers();
           showQuestions();
           score.innerText = "Final score: " + finalScore;   
-       });
-
-       //var userChoice = event.target.textContent;
-       //toggle display none
-       
+      });       
    }
 }
 showQuestions()
 
 function checkAnswers() {
-   
-var userChoice = event.target.textContent;
+   var userChoice = event.target.textContent;
 
- if (userChoice === questions[questionNumber].correctAnswer) {
-   questionNumber ++;
-   finalScore ++;
-   document.getElementById("right-wrong").innerText = "right-o-rini!";
-   console.log(questionNumber);
-   console.log(finalScore);
-   //btn.addEventListener("click", showQuestions);
+   if (userChoice === questions[questionNumber].correctAnswer) {
+      questionNumber ++;
+      finalScore ++;
+      document.getElementById("right-wrong").innerText = "right-o-rini!";
+      console.log(questionNumber);
+      console.log(finalScore);
    }
    else { 
       (userChoice !== questions[questionNumber].correctAnswer);
@@ -97,28 +88,3 @@ var userChoice = event.target.textContent;
    }
 }
 
-//end game function here - bring up total score
-//showQuestions(0);
-
-//   if ( questions.choices.indexOf(userChoice) !== -1 {
-//    questionNumber ++;
-//    finalScore ++;
-
-//    alert("Right-o-rini!");
-//   }
-//    else { (questions.choices != questions.correctAnswer); 
-//    questionNumber ++; 
-//    alert("Wrong-O!"); 
-   
-
-// checkAnswers();
-
-  //  if ("" === true)
- //   change counter up one if right, need to change questionNumber plus one no matter what.
- //else just move on to next question which means questionNumber + 1 
-
-//variable to move questions forward -- which is what I will need to put into my questionNumber variable -- need to create function that will compare my answers 
- //easier to push into two arrays instead of an object (per terrence) --- maybe
- //to hide functions style.display - pull id from html -- visible/invisible takes up space, none will take up no space
-//json.parse -- create variable that var scoreArray (ex) = json.parse(localstorage.getitem(score)) -- score is the increment variable that we push a correct answer into
-//make it purty
