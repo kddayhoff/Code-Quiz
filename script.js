@@ -51,42 +51,68 @@ startBtn.addEventListener("click", function() {
      });
   document.body.appendChild(startBtn);
 
+
 function showQuestions () {
-  quizQuestions.innerHTML = questions[questionNumber].ask;  
+   if (questionNumber < 4)  {
+         quizQuestions.innerHTML = questions[questionNumber].ask;  
+         };
+  
+
   for (var i = 0; i < questions[questionNumber].choices.length; i++) {
         console.log(questions[questionNumber]);
-    
+       
        var btn = document.createElement("button");
        btn.innerText = questions[questionNumber].choices[i];
        quizQuestions.appendChild(btn);
-       btn.addEventListener("click", checkAnswers);
+       btn.addEventListener("click", function() {
+          checkAnswers();
+          showQuestions();
+          score.innerText = "Final score: " + finalScore;   
+       });
+
        //var userChoice = event.target.textContent;
        //toggle display none
-       //call the checkAnwers within the main function
-       //
+       
    }
 }
 showQuestions()
-function checkAnswers(event) {
+
+function checkAnswers() {
+   
 var userChoice = event.target.textContent;
-  if ( questions.choices == questions.correctAnswer) {
+
+ if (userChoice === questions[questionNumber].correctAnswer) {
    questionNumber ++;
    finalScore ++;
-   //return "Right-o-rini!";
-  }
-   else { (choices != correctAnswer); 
-   questionNumber ++; 
-   //return "Wrong-O!" 
+   document.getElementById("right-wrong").innerText = "right-o-rini!";
+   console.log(questionNumber);
+   console.log(finalScore);
+   //btn.addEventListener("click", showQuestions);
    }
-} 
-checkAnswers();
+   else { 
+      (userChoice !== questions[questionNumber].correctAnswer);
+      questionNumber ++;
+      console.log(questionNumber);
+      document.getElementById("right-wrong").innerText = "wrong-o";
+   }
+}
 
+//end game function here - bring up total score
+//showQuestions(0);
 
+//   if ( questions.choices.indexOf(userChoice) !== -1 {
+//    questionNumber ++;
+//    finalScore ++;
 
-  
-  
+//    alert("Right-o-rini!");
+//   }
+//    else { (questions.choices != questions.correctAnswer); 
+//    questionNumber ++; 
+//    alert("Wrong-O!"); 
+   
 
-//}
+// checkAnswers();
+
   //  if ("" === true)
  //   change counter up one if right, need to change questionNumber plus one no matter what.
  //else just move on to next question which means questionNumber + 1 
