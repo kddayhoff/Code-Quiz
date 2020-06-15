@@ -2,8 +2,9 @@ var quizQuestions = document.getElementById("quizQuestions");
 var score = document.getElementById("score");
 var startBtn = document.createElement("button");
 var seconds = document.getElementById("seconds");
-var quizTimer = 0;
+var quizTimer = 60;
 var questionNumber = 0;
+var timerInterval;
 var finalScore = 0;
 var questions = [
    {
@@ -31,25 +32,25 @@ var questions = [
 //Start Quiz timer
 startBtn.innerHTML = "Start Quiz!";
 
-startBtn.addEventListener("click", function() {
- event.preventDefault();
-   var quizTimer = 60;
-   var startBtn = setInterval(function() {
-      quizTimer --;
-      seconds.textContent = quizTimer;
-      if(quizTimer === 0) {
-         clearInterval(startBtn);
-         alert("Womp Womp, try again! Unless you're chicken...");
-      }
-   }, 1000);
-   console.log(quizTimer);
+startBtn.addEventListener("click", function () {
+  event.preventDefault();
+  // var quizTimer = 60;
+  var timerInterval = setInterval(function () {
+    quizTimer--;
+    seconds.textContent = quizTimer;
+    if (quizTimer === 0) {
+      clearInterval(timerInterval);
+      alert("Womp Womp, try again! Unless you're chicken...");
+    }
+  }, 1000);
+  console.log(quizTimer);
 
-   function startBtn() {
-       document.getElementById("button") = --quizTimer;
-       console.log("Show methe money")
-      }
-      showQuestions()
-     });
+//   function startBtn() {
+//     //  document.getElementById("button") = --quizTimer;
+//     console.log("Show me the money");
+//   }
+  showQuestions();
+});
   document.body.appendChild(startBtn);
  
 
@@ -57,7 +58,7 @@ startBtn.addEventListener("click", function() {
 function showQuestions () {
    if (questionNumber < questions.length)  {
          quizQuestions.innerHTML = questions[questionNumber].ask;  
-      };
+     
   
   for (var i = 0; i < questions[questionNumber].choices.length; i++) {
         console.log(questions[questionNumber]);
@@ -70,7 +71,11 @@ function showQuestions () {
           showQuestions();
           score.innerText = "Final score: " + finalScore;   
       });       
+   } 
+   if (questionNumber === questions.length){
+      endGame();
    }
+};
 }
 
 
@@ -80,7 +85,7 @@ function checkAnswers() {
    if (userChoice === questions[questionNumber].correctAnswer) {
       questionNumber ++;
       finalScore ++;
-      quizTimer ++;
+      quizTimer += 10;
       console.log(quizTimer);
       document.getElementById("right-wrong").innerText = "right-o-rini!";
       console.log(questionNumber);
@@ -89,10 +94,19 @@ function checkAnswers() {
    else { 
       (userChoice !== questions[questionNumber].correctAnswer);
       questionNumber ++;
+      quizTimer -= 15; 
       console.log(questionNumber);
       document.getElementById("right-wrong").innerText = "wrong-o";
    }
 }
+
+   function endGame() {
+      //create alerts for running out of time or finishing questions
+      //display none on what I don't want to show, 
+   }
+
+
+
 // var quizQuestions = document.getElementById("quizQuestions");
 // var score = document.getElementById("score");
 // var startBtn = document.createElement("button");
