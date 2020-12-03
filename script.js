@@ -3,11 +3,13 @@ var score = document.getElementById("score");
 var startBtn = document.createElement("button");
 var seconds = document.getElementById("seconds");
 var endTimer = document.getElementsByClassName("timer")
+var initials = document.getElementById("initials")
+var submitBtn = document.getElementById("submit-button")
 var quizTimer = 60;
 var questionNumber = 0;
 var timerInterval;
 var finalScore = 0;
-var initials = document.getElementById("initials")
+
 var questions = [
    {
       ask: "What year did Marty McFly go back in time to, in the movie <i>Back to the Future</i>?",
@@ -104,9 +106,10 @@ function checkAnswers() {
    function endGame() {
    clearInterval(timerInterval);
    seconds.setAttribute("class", "d-none");
-   initials.removeAttribute("class", "d-none")
-   initials.setAttribute("class", "d-block")
-   //remove start quiz button here
+   initials.removeAttribute("class", "d-none");
+   initials.setAttribute("class", "d-block");
+   startBtn.setAttribute("class", "d-none");
+   submitBtn.setAttribute("class", "d-block")
    //add submit button for initials
 
      quizQuestions.innerHTML = "You Scored " + finalScore + " points!";
