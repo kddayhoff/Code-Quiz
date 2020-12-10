@@ -5,6 +5,8 @@ var seconds = document.getElementById("seconds");
 var endTimer = document.getElementsByClassName("timer")
 var initials = document.getElementById("initials")
 var submitBtn = document.getElementById("submit-button")
+var savedInitials = document.getElementById("saved-initials")
+var savedScores = JSON.parse(localStorage.getItem("high-scores")) || [];
 var quizTimer = 60;
 var questionNumber = 0;
 var timerInterval;
@@ -114,9 +116,23 @@ function checkAnswers() {
 
      quizQuestions.innerHTML = "You Scored " + finalScore + " points!";
      //ccall function for local storage
+     submitBtn.addEventListener("click", function () {
+        var userInitials = initials.value;
+        savedScores.push("Name " + userInitials + "Score " + finalScore);
+        localStorage.setItem("high-scores", JSON.stringify(savedScores));
+displayHighScores()
+     })
+     
    }
 
-   //function here for local storage
+   function displayHighScores () {
+      for (var i = 0; i < savedScores.length; i++){
+         var scoreList = document.createElement("li")
+         scoreList.innerText = savedScores[i];
+         savedInitials.appendChild(scoreList)
+      }
+
+   }
 
 
 
