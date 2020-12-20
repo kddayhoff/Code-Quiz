@@ -6,6 +6,7 @@ var endTimer = document.getElementsByClassName("timer")
 var initials = document.getElementById("initials");
 var startBtn = document.getElementById("start-button")
 var submitBtn = document.getElementById("submit-button")
+var rightWrong = document.getElementById("right-wrong");
 var savedInitials = document.getElementById("saved-initials")
 var savedScores = JSON.parse(localStorage.getItem("high-scores")) || [];
 var quizTimer = 60;
@@ -52,10 +53,10 @@ startBtn.addEventListener("click", function () {
     }
   }, 1000);
   console.log(quizTimer);
-
+  startBtn.setAttribute("class", "d-none");
   showQuestions();
 });
-  document.body.appendChild(startBtn);
+ 
  console.log(quizTimer)
 
 //Make questions appear on page and loop them until the user has gone through all choices
@@ -92,7 +93,7 @@ function checkAnswers() {
       finalScore ++;
       quizTimer += 10;
       console.log(quizTimer);
-      document.getElementById("right-wrong").innerText = "right-o-rini!";
+      rightWrong.innerText = "Right-O-Rini!";
       console.log(questionNumber);
       console.log(finalScore);
    }
@@ -102,7 +103,7 @@ function checkAnswers() {
       quizTimer -= 15; 
       console.log(quizTimer);
       console.log(questionNumber);
-      document.getElementById("right-wrong").innerText = "wrong-o";
+      rightWrong.innerText = "Wrong-O";
    }
 }
 
@@ -111,10 +112,10 @@ function checkAnswers() {
    seconds.setAttribute("class", "d-none");
    initials.removeAttribute("class", "d-none");
    initials.setAttribute("class", "d-block");
-   startBtn.setAttribute("class", "d-none");
    submitBtn.setAttribute("class", "d-block")
+   rightWrong.setAttribute("class", "d-none")
    //add submit button for initials
-
+   
      quizQuestions.innerHTML = "You Scored " + finalScore + " points!";
      //ccall function for local storage
      submitBtn.addEventListener("click", function () {
