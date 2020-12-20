@@ -120,6 +120,10 @@ function checkAnswers() {
      //ccall function for local storage
      submitBtn.addEventListener("click", function () {
         var userInitials = initials.value;
+        if (userInitials == null || userInitials == ""){
+         alert("Please Enter Your Initials");
+         return false;
+        }
         savedScores.push("Name: " + userInitials + " | " + " Score: " + finalScore);
         localStorage.setItem("high-scores", JSON.stringify(savedScores));
 displayHighScores()
