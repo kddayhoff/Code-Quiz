@@ -3,7 +3,8 @@ var score = document.getElementById("score");
 var startBtn = document.createElement("button");
 var seconds = document.getElementById("seconds");
 var endTimer = document.getElementsByClassName("timer")
-var initials = document.getElementById("initials")
+var initials = document.getElementById("initials");
+var startBtn = document.getElementById("start-button")
 var submitBtn = document.getElementById("submit-button")
 var savedInitials = document.getElementById("saved-initials")
 var savedScores = JSON.parse(localStorage.getItem("high-scores")) || [];
@@ -36,7 +37,7 @@ var questions = [
 ];
 
 //Start Quiz timer
-startBtn.innerHTML = "Start Quiz!";
+
 
 startBtn.addEventListener("click", function () {
   event.preventDefault();
@@ -118,7 +119,7 @@ function checkAnswers() {
      //ccall function for local storage
      submitBtn.addEventListener("click", function () {
         var userInitials = initials.value;
-        savedScores.push("Name " + userInitials + "Score " + finalScore);
+        savedScores.push("Name: " + userInitials + " | " + " Score: " + finalScore);
         localStorage.setItem("high-scores", JSON.stringify(savedScores));
 displayHighScores()
      })
